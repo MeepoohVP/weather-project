@@ -18,21 +18,37 @@ function ApiTranslating(){
 //Realtime Weather API
 fetch('https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=en&api-version=3.0&profanityAction=NoAction&textType=plain', options)
 .then(response => response.json())
-.then(response => document.getElementById("demo").value = response[0].translations[0].text)
+.then(data => document.getElementById("demo").value = data[0].translations[0].text)
 .catch(err => console.error("กรอกข้อมูลที่ถูกต้อง"));
 
 setTimeout(() => {
-    const option = {
-    method: 'GET',
-    headers: {
-       'X-RapidAPI-Key': '42dc2f1aa5msh5bf1af0cc42368fp1f03c6jsn88c35a62d997',
-       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    function dtweather(data) {
+        console.log(data.current.condition.text);
+        console.log(data.current.temp_c);
+        console.log(data.location.name);
+        console.log(data.location.country);
+        console.log(data.location.localtime);
+        console.log(data.forecast.forecastday[0].day.daily_chance_of_rain);
     }
+    const option = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'a92bff38c9msh12825a0c18cfffbp1f5c67jsnf6a290d4fbf8',
+            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        }
     };
     const querydata = document.getElementById("demo").value
-    fetch('https://weatherapi-com.p.rapidapi.com/astronomy.json?q=' + querydata, option)
+    fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=' + querydata, option)
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(data => dtweather(data))
     .catch(err => console.error("กรอกข้อมูลที่ถูกต้อง"));
     
-}, 2000)};
+}, 2000)
+
+};
+
+
+
+//ความชื้น  data.current.cloud
+//สภาพอากาศ data.current.condition.text
+//ความชื้น อุณหภูมิ เมฆ โอกาสที่ฝนจะตก location วันเวลา ชื่อ ประเทศ
