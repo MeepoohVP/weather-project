@@ -54,3 +54,18 @@ Info.addEventListener('input',ApiTranslating)
 //ความชื้น  data.current.cloud
 //สภาพอากาศ data.current.condition.text
 //ความชื้น อุณหภูมิ เมฆ โอกาสที่ฝนจะตก location วันเวลา ชื่อ ประเทศ
+
+//tailwind config
+tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'Kanit': "Kanit",
+        },
+        colors: {
+          'SkyBlue': "#9BDCFF",
+          'Zinc': "#fafafa"
+        },
+      },
+    },
+  };

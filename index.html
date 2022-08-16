@@ -4,29 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
     <title>PreWeather</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {},
-        },
-      };
-    </script>
   </head>
-  <body>
-    <!-- <input type="text" id="info" />
-    <input type="hidden" id="Translate" /> -->
-    <div class="NavBar"></div>
-    <div class="Search"></div>
+  <body class="font-Kanit">
+
+    <div class="NavBar w-full h-28 bg-SkyBlue pt-2 ">
+      <img src="./img/logo.png" class="w-12 m-auto" alt="" />
+      <div class="m-auto flex w-3/4 justify-between text-2xl mt-2 text-white font-extralight ">
+        <a href="#" class="transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2">RealTime</a>
+        <a href="#" class="transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2">ForeCase</a>
+      </div>
+    </div>
+    <div class="Search w-full h-60 bg-Zinc flex flex-row justify-center	items-center	">
+      <input type="text" id="info" class="w-56 h-11 border-0 rounded-full shadow-lg pl-4"/>
+      <input type="hidden" id="Translate" class="none" />
+    </div>
     <div class="DisplayWeather"></div>
     <div class="footer"></div>
+
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
