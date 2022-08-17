@@ -69,3 +69,7 @@ tailwind.config = {
       },
     },
   };
+
+//ToggleDarkMode
+const Html = document.querySelector('html');
+const logoBtn = document.querySelector('.ToggleDark');
