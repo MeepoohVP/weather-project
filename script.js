@@ -3,7 +3,19 @@ const Info = document.querySelector("#info");
 const Translate = document.getElementById("Translate");
 const Html = document.querySelector("html");
 const logoBtn = document.querySelector(".ToggleDark");
+const select = document.querySelectorAll('.selection');
+
+if (matchMedia) {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    Html.classList.add("dark");
+  } else if (
+    window.matchMedia("(prefers-color-scheme: light)").matches) {
+    Html.classList.add("light");
+  }
+}
+
 //Fetch API Translating
+
 function ApiTranslating() {
   const beforeTranslating = `"${Info.value}"`;
   const options = {
@@ -71,22 +83,21 @@ tailwind.config = {
         SkyBlue: "#9BDCFF",
         Zinc: "#fafafa",
         NightSky: '#2E4482',
-        
+        OrangePastel:'#F7CC84',
+        GrayPastel:'#e8e8e8'
+      },dropShadow: {
+        '3xl': '5px 35px 35px rgba(0, 0, 0, 0.25)',
+        '4xl': [
+            '0 35px 35px rgba(0, 0, 0, 0.25)',
+            '0 45px 65px rgba(0, 0, 0, 0.15)'
+        ]
       },
     },
   },
 };
 
 //ToggleDarkMode
-if (matchMedia) {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    Html.classList.add("dark");
-  } else if (
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  ) {
-    Html.classList.add("light");
-  }
-}
+
 
 function ToggleDarkMode() {
   Html.classList.toggle("dark");

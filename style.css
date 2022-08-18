@@ -1,9 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
 /* Hover Desktop NavBar */
 /* .NavBar a:hover{
     -webkit-box-reflect: below -10px linear-gradient(transparent, rgba(0,0,0,.4));
 } */
+input[type='text']{
+    font-family:Kanit,Arial, FontAwesome; 
+}
+.text-shadow {
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}

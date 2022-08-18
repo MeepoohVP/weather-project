@@ -8,27 +8,38 @@
     <title>PreWeather</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="font-Kanit">
-
-    <div class="transition ease-in duration-200 NavBar w-full h-28 bg-SkyBlue pt-2 dark:bg-NightSky">
-      <div class="w-full flex justify-center items-center ">
+    <div class="NavBar transition ease-in duration-200 NavBar w-full h-28 bg-SkyBlue pt-2 dark:bg-NightSky ">
+      <div class="w-full flex justify-center items-center select-none">
         <button class="ToggleDark">
           <img src="./img/logo.png" class="w-12" />
         </button>
       </div>
       <div class="m-auto flex w-3/4 justify-between text-2xl mt-2 text-white font-extralight ">
-        <a href="#" class="transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2">RealTime</a>
-        <a href="#" class="transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2">ForeCase</a>
+        <a href="#" class="selection select-none transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2 dark:text-OrangePastel text-shadow">RealTime</a>
+        <a href="#" class="selection select-none transition-all ease-in duration-75 border-b-0 border-inherrit	hover:border-b-2 dark:text-OrangePastel text-shadow">ForeCase</a>
       </div>
     </div>
-    <div class="Search w-full h-60 bg-Zinc flex flex-row justify-center	items-center	">
-      <input type="text" id="info" class="w-56 h-11 border-0 rounded-full shadow-lg pl-4 outline-none" placeholder="province e.g: Bangkok"/>
+
+    <div class="Search w-full h-60 bg-Zinc flex flex-row justify-center	items-center mb-10">
+      <input type="text" id="info" class="font-Kanit w-56 h-11 border-0 rounded-full shadow-lg pl-4 outline-none" placeholder="&#xF002;  province e.g: Bangkok"/>
       <input type="hidden" id="Translate" class="none" />
     </div>
-    <div class="DisplayWeather"></div>
-    <div class="footer"></div>
 
+    <div class="DisplayWeather flex flex-col justify-center items-center">
+      <div class=" w-60 h-48 bg-red-200 rounded-xl">
+      </div>
+      <div class=" w-60 h-16 mt-5 bg-red-200 rounded-xl">
+      </div>
+      <div class=" w-60 h-16 mt-5 bg-red-200 rounded-xl">
+      </div>
+      
+    </div>
+    
+    <div class="footer w-full h-32 bg-fuchsia-300 mt-24"></div>
+    
     <script src="script.js"></script>
   </body>
 </html>
