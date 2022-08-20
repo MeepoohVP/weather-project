@@ -89,8 +89,7 @@ function WeatherAPI() {
       .catch((err) => console.error("กรอกข้อมูลที่ถูกต้อง"));
     setTimeout(() => {
       DisplayWeather.classList.remove("hidden");
-      footer.classList.remove("absolute");
-      footer.classList.remove("bottom-0");
+      footer.classList.remove("hidden");
     }, 1000);
   }, 2000);
 }
