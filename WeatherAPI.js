@@ -58,14 +58,21 @@ function WeatherAPI() {
     // console.log(data.location.localtime); //Time
     // console.log(data.forecast.forecastday[0].day.daily_chance_of_rain); //Rain
   }
+     const Weather = data.current.condition.text;
+     const Temp = data.current.temp_c + "&deg;";
+     const Wind = data.current.wind_kph;
+     const ImgWeather = data.current.condition.icon;
+     const Moisture = data.current.humidity;
+     const Location = data.location.name;
+     const Country = data.location.country;
     if (data.current.condition.text !== "Clear") {
-      dpWeather.innerHTML = data.current.condition.text;
-      dpTemp.innerHTML = data.current.temp_c + "&deg;";
-      dpWind.innerHTML = data.current.wind_kph;
-      dpImgWeather.src = data.current.condition.icon;
-      dpMoisture.innerHTML = data.current.humidity;
-      dpLocation.innerHTML = data.location.name;
-      dpCountry.innerHTML = data.location.country;
+      dpWeather.innerHTML = Weather;
+      dpTemp.innerHTML = Temp;
+      dpWind.innerHTML = Wind;
+      dpImgWeather.src = ImgWeather;
+      dpMoisture.innerHTML = Moisture;
+      dpLocation.innerHTML = Location;
+      dpCountry.innerHTML =  Country;
       setInterval(()=>{
         const date = new Date();
         const hour = date.getHours();
