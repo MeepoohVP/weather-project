@@ -66,6 +66,18 @@ function WeatherAPI() {
       dpMoisture.innerHTML = data.current.humidity;
       dpLocation.innerHTML = data.location.name;
       dpCountry.innerHTML = data.location.country;
+      setInterval(()=>{
+        const date = new Date();
+        const hour = date.getHours();
+        const minute = date.getMinutes();
+        const Today = date.getDate() + "/" + (date.getMonth() + 1);
+        const time = date.toLocaleString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        });
+        dpTime.innerHTML = time;
+      },)
       dpTime.innerHTML = time;
       dpDate.innerHTML = Today;
       dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
