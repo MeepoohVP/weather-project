@@ -69,7 +69,7 @@ function WeatherAPI() {
 
 
     const lowname = Weather.toLowerCase()
-    const checkweather = ['sunny', 'rain', 'cloud','overcase'];
+    const checkweather = ['sunny', 'rain', 'cloud','overcast','mist'];//mist = หมอก
     const match = checkweather.map(data => {
       return lowname.match(data)
     })
@@ -77,13 +77,21 @@ function WeatherAPI() {
     match.forEach((data) => {
       if (data == checkweather[0]) {
         // document.body.style.backgroundColor = 'red';
+        document.getElementById("realtime").classList.remove('bg-gradient-to-r' ,'from-cyan-200' ,'to-blue-100','from-gray-400','to-gray-100');
+        document.getElementById("realtime").classList.add('bg-gradient-to-r' ,'from-orange-300','to-orange-100');
       }
       else if (data == checkweather[1] || data == checkweather[3]) {
         // document.body.style.backgroundColor = 'blue';
+        document.getElementById("realtime").classList.remove('bg-gradient-to-r' ,'from-cyan-200' ,'to-blue-100','from-orange-300','to-orange-100');
+        document.getElementById("realtime").classList.add('bg-gradient-to-r' ,'from-gray-400','to-gray-100');
         
       }
       else if (data == checkweather[2] ) {
         // document.body.style.backgroundColor = 'green';
+        document.getElementById("realtime").classList.remove('bg-gradient-to-r' ,'from-gray-400','to-gray-100','from-orange-300','to-orange-100');
+        document.getElementById("realtime").classList.add('bg-gradient-to-r' ,'from-cyan-200' ,'to-blue-100');
+        // document.getElementById("realtime").classList.add('from-cyan-200');
+        // document.getElementById("realtime").classList.add('to-blue-100');
       }
     });
 
