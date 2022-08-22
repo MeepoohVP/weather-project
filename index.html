@@ -10,7 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body class="font-Kanit">
+  <body class="font-Kanit ">
+    <!-- bg-red-800 -->
     <div class="NavBar transition ease-in duration-200 NavBar w-full h-28 bg-SkyBlue pt-2 dark:bg-NightSky ">
       <div class="w-full flex justify-center items-center select-none">
         <button class="ToggleDark">
@@ -28,8 +29,12 @@
       <input type="hidden" id="Translate" class="none" />
     </div>
 
-    <div id="DisplayWeather" class="DisplayWeather flex flex-col justify-center items-center dark:text-white transition ease-in duration-200 hidden">
-      <div class="w-60 h-54 p-4 bg-white drop-shadow-lg rounded-xl dark:bg-gradient-to-l  dark:from-S dark:to-B bg-gradient-to-r from-cyan-200 to-blue-100">
+
+
+ <div class="container-none  flex flex-col justify-center items-center ">
+  <!-- bg-red-800   -->
+  <div id="DisplayWeather" class="DisplayWeather flex flex-col justify-center mt-8 items-center dark:text-white transition ease-in duration-200 opacity-0	 ">
+      <div class="w-60 h-54 p-4 bg-white drop-shadow-lg rounded-xl bg-gradient-to-r from-cyan-200 to-blue-100">
         <div class="flex justify-between">
           <div class="pl-2">
             <h1 class=" break-words w-[8rem] text-xl font-bold mt-4 text-left text-shadow" id="Weather">None</h1>
@@ -53,11 +58,10 @@
 
       <div class=" w-60 h-16 mt-5 bg-white drop-shadow-lg rounded-xl dark:bg-gradient-to-l dark:from-S dark:to-B">
       </div>
-      
     </div>
     
-    <div class="footer w-full h-32 bg-fuchsia-300 mt-24 hidden" id="footer"></div>
-    
+  </div>   
+  <div class="footer w-full h-32 lg:h-36 bg-fuchsia-300 mt-24" id="footer"></div>
     <script src="./WeatherAPI.js"></script>
     <script src="./tailwind.js"></script>
     <script src="./script.js"></script>
