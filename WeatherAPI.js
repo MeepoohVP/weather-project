@@ -38,6 +38,7 @@ function WeatherAPI() {
     body: '[{"Text":' + beforeTranslating + "}]",
   };
 
+
   //Translating
   fetch(
     "https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=en&api-version=3.0&profanityAction=NoAction&textType=plain",
@@ -49,22 +50,44 @@ function WeatherAPI() {
 
   //Realtime Weather API
   function dtweather(data) {
-   { // console.log(data);
-    // console.log(data.current.condition.text); //Weather
-    // console.log(data.current.temp_c); //Temp
-    // console.log(data.current.wind_kph);
-    // console.log(data.location.name); //Location
-    // console.log(data.location.country); //Location
-    // console.log(data.location.localtime); //Time
-    // console.log(data.forecast.forecastday[0].day.daily_chance_of_rain); //Rain
-  }
-     const Weather = data.current.condition.text;
-     const Temp = data.current.temp_c + "&deg;";
-     const Wind = data.current.wind_kph;
-     const ImgWeather = data.current.condition.icon;
-     const Moisture = data.current.humidity;
-     const Location = data.location.name;
-     const Country = data.location.country;
+    { // console.log(data);
+      // console.log(data.current.condition.text); //Weather
+      // console.log(data.current.temp_c); //Temp
+      // console.log(data.current.wind_kph);
+      // console.log(data.location.name); //Location
+      // console.log(data.location.country); //Location
+      // console.log(data.location.localtime); //Time
+      // console.log(data.forecast.forecastday[0].day.daily_chance_of_rain); //Rain
+    }
+    const Weather = data.current.condition.text;
+    const Temp = data.current.temp_c + "&deg;";
+    const Wind = data.current.wind_kph;
+    const ImgWeather = data.current.condition.icon;
+    const Moisture = data.current.humidity;
+    const Location = data.location.name;
+    const Country = data.location.country;
+
+
+    const lowname = Weather.toLowerCase()
+    const checkweather = ['sunny', 'rain', 'cloud','overcase'];
+    const match = checkweather.map(data => {
+      return lowname.match(data)
+    })
+    console.log(match);
+    match.forEach((data) => {
+      if (data == checkweather[0]) {
+        // document.body.style.backgroundColor = 'red';
+      }
+      else if (data == checkweather[1] || data == checkweather[3]) {
+        // document.body.style.backgroundColor = 'blue';
+        
+      }
+      else if (data == checkweather[2] ) {
+        // document.body.style.backgroundColor = 'green';
+      }
+    });
+
+
     if (data.current.condition.text !== "Clear") {
       dpWeather.innerHTML = Weather;
       dpTemp.innerHTML = Temp;
@@ -72,8 +95,8 @@ function WeatherAPI() {
       dpImgWeather.src = ImgWeather;
       dpMoisture.innerHTML = Moisture;
       dpLocation.innerHTML = Location;
-      dpCountry.innerHTML =  Country;
-      setInterval(()=>{
+      dpCountry.innerHTML = Country;
+      setInterval(() => {
         const date = new Date();
         const hour = date.getHours();
         const minute = date.getMinutes();
@@ -84,7 +107,7 @@ function WeatherAPI() {
           hour12: true,
         });
         dpTime.innerHTML = time;
-      },)
+      })
       dpTime.innerHTML = time;
       dpDate.innerHTML = Today;
       dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
@@ -107,8 +130,8 @@ function WeatherAPI() {
       .then((data) => dtweather(data))
       .catch((err) => console.error("กรอกข้อมูลที่ถูกต้อง"));
     setTimeout(() => {
-      DisplayWeather.classList.remove("hidden");
-      footer.classList.remove("hidden");
+      DisplayWeather.classList.remove("opacity-0");
+      // footer.classList.remove("hidden");
     }, 1000);
   }, 2000);
 }
