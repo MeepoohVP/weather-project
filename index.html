@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body class="font-Kanit ">
+  <body class="font-Kanit bg-[url('lukasz-lada-LtWFFVi1RXQ-unsplash.jpg')] bg-cover">
     <!-- bg-red-800 -->
     <div class="NavBar transition ease-in duration-200 NavBar w-full h-28 bg-SkyBlue pt-2 dark:bg-NightSky ">
       <div class="w-full flex justify-center items-center select-none">
@@ -24,14 +24,14 @@
       </div>
     </div>
 
-    <div class="Search w-full h-48 bg-gradient-to-b from-zinc-100 via-Zinc to-white flex flex-row justify-center	items-center">
+    <div class="Search w-full h-48 flex flex-row justify-center	items-center bg-white/[0.7] dark:bg-black/[0.7]">
       <input type="text" id="info" class=" font-Kanit w-56 h-11 border-0 rounded-full drop-shadow-[8px_8px_8px_rgba(0,0,0,0.08)] pl-4 outline-none" placeholder="&#xF002;  province e.g: Bangkok"/>
       <input type="hidden" id="Translate" class="none" />
     </div>
 
 
 
- <div class="container-none  flex flex-col justify-center items-center ">
+ <div class="container-none w-300 h-full flex flex-col justify-center items-center bg-white/[0.7] dark:bg-black/[0.7]">
   <!-- bg-red-800   -->
   <div id="DisplayWeather" class="DisplayWeather flex flex-col justify-center mt-8 items-center  transition ease-in duration-200 opacity-0	 ">
       <div class="w-60 h-54 p-4 bg-white drop-shadow-lg rounded-xl" id="realtime">
@@ -53,16 +53,17 @@
         </div>
       </div>
       <div class="w-64 flex flex-row mt-5 items-center">
-        <div class=" w-1/2 h-16 mr-2 bg-white drop-shadow-lg rounded-xl dark:bg-gradient-to-l dark:from-S dark:to-B">
+        <div class=" w-1/2 h-16 mr-2 bg-white drop-shadow-lg rounded-xl">
           
         </div>
-        <div class=" w-1/2 h-16 ml-2 bg-white drop-shadow-lg rounded-xl dark:bg-gradient-to-l dark:from-S dark:to-B">
+        <div class=" w-1/2 h-16 ml-2 bg-white drop-shadow-lg rounded-xl">
         </div>
       </div>
     </div>
+    <br><br><br>
     
-  </div>   
-  <div class="footer w-full h-32 lg:h-36 bg-fuchsia-300 mt-24" id="footer"></div>
+  </div>
+  <div class="footer w-full h-32 lg:h-36 bg-fuchsia-300" id="footer"></div>
     <script src="./WeatherAPI.js"></script>
     <script src="./tailwind.js"></script>
     <script src="./script.js"></script>

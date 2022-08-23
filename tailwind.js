@@ -15,6 +15,7 @@ tailwind.config = {
           PurpleDark:'#1A0033',
           S:'#4b6cb7',
           B:'#182848',
+          midnight:'#2b1b17',
         },
         dropShadow: {
           "3xl": "5px 35px 35px rgba(0, 0, 0, 0.25)",
