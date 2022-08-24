@@ -138,44 +138,43 @@ function WeatherAPI() {
           hour: "numeric",
           hour12: true,
         });
-        const hour_ = date.getHours();
-        const splithour = hour.split(' ');
+        const hourB = date.getHours();
+        const splithour = hour.split(' ')
         var hour1 = `${Number(splithour[0]) + 1}:00 ${splithour[1]}`
         var hour2 = `${Number(splithour[0]) + 2}:00 ${splithour[1]}`
-        const minute = date.getMinutes();
-        const Today = date.getDate() + "/" + (date.getMonth() + 1);
+        const minute = date.getMinutes()
+        const Today = date.getDate() + "/" + (date.getMonth() + 1)
         const time = date.toLocaleString("en-US", {
           hour: "numeric",
           minute: "numeric",
           hour12: true,
-        });
-        dpTime.innerHTML = time;
-        dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
-        if(hour_ === 23){
-           hour1 = `${Number(splithour[0]) - Number(splithour[0])}:00 ${splithour[1]}`
-           hour2 = `${(Number(splithour[0]) - Number(splithour[0])) + 1}:00 ${splithour[1]}`
-
-          fc1Time.innerHTML = hour1
-          fc2Time.innerHTML = hour2
-          fc1Temp.innerHTML = data.forecast.forecastday[0].hour[hour_-hour_].temp_c + '&deg;'
-          fc2Temp.innerHTML = data.forecast.forecastday[0].hour[(hour_-hour_)+1].temp_c + '&deg;'
-          fc1ImgWeather.src = data.forecast.forecastday[0].hour[hour_-hour_].condition.icon
-          fc2ImgWeather.src = data.forecast.forecastday[0].hour[(hour_-hour_)+1].condition.icon
-          
-        }else{
-          if (hour_ === 0) {
-            hour1 = `${Number(splithour[0]) - Number(splithour[0])+1}:00 ${splithour[1]}`
-           hour2 = `${(Number(splithour[0]) - Number(splithour[0])) + 2}:00 ${splithour[1]}`
-          }
-          fc1Time.innerHTML = hour1
-          fc2Time.innerHTML = hour2
-          fc1Temp.innerHTML = data.forecast.forecastday[0].hour[hour_+1].temp_c + '&deg;'
-          fc2Temp.innerHTML = data.forecast.forecastday[0].hour[hour_+2].temp_c + '&deg;'
-          fc1ImgWeather.src = data.forecast.forecastday[0].hour[hour_+1].condition.icon
-          fc2ImgWeather.src = data.forecast.forecastday[0].hour[hour_+2].condition.icon
-        }
+        })
+        dpTime.innerHTML = time      
           });
-          
+          if(hourB === 23){
+            hour1 = `${Number(splithour[0]) - Number(splithour[0])}:00 ${splithour[1]}`
+            hour2 = `${(Number(splithour[0]) - Number(splithour[0])) + 1}:00 ${splithour[1]}`
+ 
+           fc1Time.innerHTML = hour1
+           fc2Time.innerHTML = hour2
+           fc1Temp.innerHTML = data.forecast.forecastday[0].hour[hourB-hourB].temp_c + '&deg;'
+           fc2Temp.innerHTML = data.forecast.forecastday[0].hour[(hourB-hourB)+1].temp_c + '&deg;'
+           fc1ImgWeather.src = data.forecast.forecastday[0].hour[hourB-hourB].condition.icon
+           fc2ImgWeather.src = data.forecast.forecastday[0].hour[(hourB-hourB)+1].condition.icon
+           
+         }else{
+           if (hourB === 0) {
+             hour1 = `${Number(splithour[0]) - Number(splithour[0])+1}:00 ${splithour[1]}`
+            hour2 = `${(Number(splithour[0]) - Number(splithour[0])) + 2}:00 ${splithour[1]}`
+           }
+           fc1Time.innerHTML = hour1
+           fc2Time.innerHTML = hour2
+           fc1Temp.innerHTML = data.forecast.forecastday[0].hour[hourB+1].temp_c + '&deg;'
+           fc2Temp.innerHTML = data.forecast.forecastday[0].hour[hourB+2].temp_c + '&deg;'
+           fc1ImgWeather.src = data.forecast.forecastday[0].hour[hourB+1].condition.icon
+           fc2ImgWeather.src = data.forecast.forecastday[0].hour[hourB+2].condition.icon
+         }
+          dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
           dpDate.innerHTML = Today;
     }
   }
