@@ -6,13 +6,13 @@ const select = document.querySelectorAll(".selection");
 
 // System Mode
 {
-  // if (matchMedia) {
-  //   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  //     Html.classList.add("dark");
-  //   } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-  //     Html.classList.add("light");
-  //   }
-  // }
+  if (matchMedia) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      Html.classList.add("dark");
+    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      Html.classList.add("light");
+    }
+  }
 }
 //ToggleDarkMode
 {

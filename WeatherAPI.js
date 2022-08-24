@@ -51,6 +51,15 @@ function WeatherAPI() {
 
   //Realtime Weather API
   function dtweather(data) {
+    const checkweather = [
+      "sunny",
+      "rain",
+      "cloud",
+      "overcast",
+      "mist",
+      "thunder",
+      "clear",
+    ]; //mist = หมอก
     const Weather = data.current.condition.text;
     const Temp = data.current.temp_c + "&deg;";
     const Wind = data.current.wind_kph;
@@ -58,7 +67,11 @@ function WeatherAPI() {
     const Moisture = data.current.humidity;
     const Location = data.location.name;
     const Country = data.location.country;
+
     {
+      const elefc1 = document.querySelector("#Forecast-1-bg");
+      const elefc2 = document.querySelector("#Forecast-2-bg");
+
       const getdate = new Date();
       const hourUs = getdate.toLocaleString("en-US", {
         hour: "numeric",
@@ -77,12 +90,9 @@ function WeatherAPI() {
         fc2Temp.innerHTML = TempForecast_2 + "&deg;";
       };
       const ForecastTime = () => {
-        var TimeForecast_1 = `${Number(splithour[0])}:00 ${splithour[1]}`;
-        var TimeForecast_2 = `${Number(splithour[0]) + 1}:00 ${splithour[1]}`;
-        if (hour == 23) {
-          TimeForecast_1 = `${Number(splithour[0])}:00 ${splithour[1]}`;
-          TimeForecast_2 = `${Number(splithour[0]) + 1}:00 ${splithour[1]}`;
-        } else {
+        var TimeForecast_1 = `${Number(splithour[0]) - Number(splithour[0])}:00 ${splithour[1]}`;
+        var TimeForecast_2 = `${Number(splithour[0]) - Number(splithour[0]) + 1}:00 ${splithour[1]}`;
+        if (hour != 23) {
           TimeForecast_1 = `${Number(splithour[0]) + 1}:00 ${splithour[1]}`;
           TimeForecast_2 = `${Number(splithour[0]) + 2}:00 ${splithour[1]}`;
         }
@@ -93,27 +103,136 @@ function WeatherAPI() {
         var ImgForecast_1 = data.forecast.forecastday[0].hour[0].condition.icon;
         var ImgForecast_2 = data.forecast.forecastday[0].hour[1].condition.icon;
         if (hour != 23) {
-          ImgForecast_1 = data.forecast.forecastday[0].hour[hour + 1].condition.icon;
-          ImgForecast_2 = data.forecast.forecastday[0].hour[hour + 2].condition.icon;
+          ImgForecast_1 =
+            data.forecast.forecastday[0].hour[hour + 1].condition.icon;
+          ImgForecast_2 =
+            data.forecast.forecastday[0].hour[hour + 2].condition.icon;
         }
         fc1ImgWeather.src = ImgForecast_1;
         fc2ImgWeather.src = ImgForecast_2;
       };
+      const ForecastBg = () => {
+        var TextForecast_1 =
+          data.forecast.forecastday[0].hour[0].condition.text;
+        var TextForecast_2 =
+          data.forecast.forecastday[0].hour[1].condition.text;
+        if (hour != 23) {
+          TextForecast_1 =
+            data.forecast.forecastday[0].hour[hour + 1].condition.text;
+          TextForecast_2 =
+            data.forecast.forecastday[0].hour[hour + 2].condition.text;
+        }
+        const TextForecast_1_lowname = TextForecast_1.toLowerCase();
+        const TextForecast_2_lowname = TextForecast_2.toLowerCase();
+        const TextForecast_1_match = checkweather.map((data) => {
+          return TextForecast_1_lowname.match(data);
+        });
+        const TextForecast_2_match = checkweather.map((data) => {
+          return TextForecast_2_lowname.match(data);
+        });
+        TextForecast_1_match.forEach((data) => {
+
+          if (data == checkweather[0]) {
+            elefc1.classList.remove(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100",
+              "from-gray-400",
+              "to-gray-100"
+            );
+            elefc1.classList.add(
+              "bg-gradient-to-r",
+              "from-orange-300",
+              "to-orange-100"
+            );
+          } else if (
+            data == checkweather[1] ||
+            data == checkweather[3] ||
+            data == checkweather[5]
+          ) {
+            elefc1.classList.remove(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100",
+              "from-orange-300",
+              "to-orange-100"
+            );
+            elefc1.classList.add(
+              "bg-gradient-to-r",
+              "from-gray-400",
+              "to-gray-100"
+            );
+          }else if (data == checkweather[2] || data == checkweather[6]) {
+            elefc1.classList.remove(
+              "bg-gradient-to-r",
+              "from-gray-400",
+              "to-gray-100",
+              "from-orange-300",
+              "to-orange-100"
+            );
+            elefc1.classList.add(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100"
+            );
+          }
+        });
+        TextForecast_2_match.forEach((data) => {
+          
+
+          if (data == checkweather[0]) {
+            elefc2.classList.remove(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100",
+              "from-gray-400",
+              "to-gray-100"
+            );
+            elefc2.classList.add(
+              "bg-gradient-to-r",
+              "from-orange-300",
+              "to-orange-100"
+            );
+          } else if (
+            data == checkweather[1] ||
+            data == checkweather[3] ||
+            data == checkweather[5]
+          ) {
+            elefc2.classList.remove(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100",
+              "from-orange-300",
+              "to-orange-100"
+            );
+            elefc2.classList.add(
+              "bg-gradient-to-r",
+              "from-gray-400",
+              "to-gray-100"
+            );
+          }else if (data == checkweather[2] || data == checkweather[6]) {
+            elefc2.classList.remove(
+              "bg-gradient-to-r",
+              "from-gray-400",
+              "to-gray-100",
+              "from-orange-300",
+              "to-orange-100"
+            );
+            elefc2.classList.add(
+              "bg-gradient-to-r",
+              "from-cyan-200",
+              "to-blue-100"
+            );
+          }
+        });
+      };
       ForecastTime();
       ForecastTemp();
-      ForecastImg()
+      ForecastImg();
+      ForecastBg();
     }
 
     const Weatherlowname = Weather.toLowerCase();
-    const checkweather = [
-      "sunny",
-      "rain",
-      "cloud",
-      "overcast",
-      "mist",
-      "thunder",
-      "clear",
-    ]; //mist = หมอก
     const match = checkweather.map((data) => {
       return Weatherlowname.match(data);
     });
