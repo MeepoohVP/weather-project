@@ -150,6 +150,7 @@ function WeatherAPI() {
           hour12: true,
         });
         dpTime.innerHTML = time;
+        dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
         if(hour_ === 23){
            hour1 = `${Number(splithour[0]) - Number(splithour[0])}:00 ${splithour[1]}`
            hour2 = `${(Number(splithour[0]) - Number(splithour[0])) + 1}:00 ${splithour[1]}`
@@ -174,9 +175,8 @@ function WeatherAPI() {
           fc2ImgWeather.src = data.forecast.forecastday[0].hour[hour_+2].condition.icon
         }
           });
- 
-        dpRain.innerHTML = data.forecast.forecastday[0].day.daily_chance_of_rain;
-      dpDate.innerHTML = Today;
+          
+          dpDate.innerHTML = Today;
     }
   }
 
