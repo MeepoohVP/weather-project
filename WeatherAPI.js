@@ -327,7 +327,7 @@ function WeatherAPI() {
     setTimeout(() => {
       DisplayWeather.classList.remove("opacity-0");
       // footer.classList.remove("hidden");
-    }, 1000);
+    }, 100);
   }, 2000);
 }
 
